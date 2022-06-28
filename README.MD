@@ -24,16 +24,13 @@ interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   hasBorder?: boolean;
 }
 
-export function Avatar({
-	hasBorder = true,
-	...props
-}: AvatarProps): JSX.Element {
+export function Avatar({ hasBorder = true, ...props }: AvatarProps): JSX.Element {
 	return (
-		<img
-			{...props}
-			className={hasBorder ? styles.avatarWithBorder : styles.avatar}
+		<img 
+		   {...props}
+		   className={hasBorder ? styles.avatarWithBorder : styles.avatar}
 		/>
-	);
+		);
 }
 ```
 
@@ -54,29 +51,29 @@ export function Comment({ content, deleteComment }: CommentProps): JSX.Element {
 	return (
 		<section className={styles.wrapper}>
 			<Avatar hasBorder={false} src="https://github.com/joaopsguimaraes.png" />
-			<div className={styles.commentBox}>
-				<div className={styles.commentContent}>
-					<header className={styles.header}>
-						<div className={styles.boxAuthor}>
-							<strong>Joao Guimaraes</strong>
-							<time title="20 de maio as 20:30" dateTime="2022-05-20 20:30:00">
-                Cerca de 1h atrás
-							</time>
-						</div>
-						<button title="Deletar Comentários" onClick={handleDeleteComment}>
-							<Trash size={24} />
-						</button>
-					</header>
-					<p>{content}</p>
-				</div>
+				<div className={styles.commentBox}>
+					<div className={styles.commentContent}>
+						<header className={styles.header}>
+							<div className={styles.boxAuthor}>
+								<strong>Joao Guimaraes</strong>
+								<time title="20 de maio as 20:30" dateTime="2022-05-20 20:30:00">
+									Cerca de 1h atrás
+								</time>
+							</div>
+							<button title="Deletar Comentários" onClick={handleDeleteComment}>
+								<Trash size={24} />
+							</button>
+						</header>
+						<p>{content}</p>
+					</div>
 				<footer className={styles.footer}>
 					<button onClick={handleLikeComment}>
 						<ThumbsUp />
-            Aplaudir
+            					Aplaudir
 						<span>{likeCount}</span>
 					</button>
 				</footer>
-			</div>
+				</div>
 		</section>
 	);
 }
